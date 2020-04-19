@@ -1,12 +1,16 @@
 import React from 'react';
 import { Card, CardGrid, Container, Header } from './Elements';
+
 import Toggle from './components/Toggle';
 import Inc from './components/Inc';
+import Mount from './components/Mount';
+import Hover from './components/Hover';
+
 import './App.css';
 import Menu from './Menu';
 import blue from './blue.png';
 import purp from './purp.png';
-import black from './black.png';
+
 import green from './green.png';
 
 function App() {
@@ -20,7 +24,9 @@ function App() {
         <h2>Super Cool</h2>
         <Toggle />
         <Inc />
-        <Inc initial={2} maxValue={10} minValue={-2}  step={2} />
+        <Inc initial={2} maxValue={10} minValue={-2} step={2} />
+        <Mount />
+        <Hover />
         <CardGrid>
           <Card style={{ background: 'var(--purp)' }}>
             <h3>Some card</h3>
@@ -30,10 +36,7 @@ function App() {
             <h3>Some card</h3>
             <img src={blue} alt="" />
           </Card>
-          <Card style={{ background: 'var(--black)' }}>
-            <h3>Some card</h3>
-            <img src={black} alt="" />
-          </Card>
+
           <Card style={{ background: 'var(--green)' }}>
             <h3>Some card</h3>
             <img src={green} alt="" />

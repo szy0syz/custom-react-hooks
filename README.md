@@ -42,3 +42,67 @@ const Inc = ({ initial, minValue, maxValue, step }) => {
 
 export default Inc;
 ```
+
+## useMount
+
+```js
+import { useEffect } from 'react';
+
+export const useMount = (func) => {
+  useEffect(() => {
+    func();
+  }, []); // eslint-disable-line
+};
+
+export const useUnmount = (func) => {
+  useEffect(() => {
+    return () => {
+      func();
+    };
+  });
+};
+```
+
+```js
+import React from 'react';
+import { useMount, useUnmount } from '../hooks/useMount';
+import { useToggle } from '../hooks/useToggle';
+
+const Mount = () => {
+  const { isToggled, toggle } = useToggle();
+
+  return (
+    <div>
+      <button onClick={toggle}>Toggle</button>
+      {isToggled && <UnMount />}
+    </div>
+  );
+};
+
+export const UnMount = () => {
+  useMount(() => console.log('I mounted!'));
+  useUnmount(() => console.log('I unmounted~'));
+  return <div>Umount me</div>;
+};
+
+export default Mount;
+```
+
+### useHover
+
+```js
+import { useMemo, useState } from 'react';
+
+export const useHover = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const bind = useMemo(() => {
+    return {
+      onMouseOver: () => setIsHovered(true),
+      onMouseLeave: () => setIsHovered(false),
+    };
+  }, []);
+
+  return [isHovered, bind];
+};
+```
