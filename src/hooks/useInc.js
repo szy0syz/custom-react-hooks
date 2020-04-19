@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useInc = ({
+export const useInc = ({
   minValue = -100000,
   maxValue = 100000,
   initial = 0,
@@ -14,5 +14,3 @@ const useInc = ({
   const reset = () => setValue(initial);
   return [value, { inc, dec, reset }];
 };
-
-export default useInc;

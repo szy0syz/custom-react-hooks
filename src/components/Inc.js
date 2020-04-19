@@ -1,5 +1,5 @@
 import React from 'react';
-import useInc from '../hooks/useInc';
+import { useInc } from '../hooks';
 
 const Inc = ({ initial, minValue, maxValue, step }) => {
   const [value, { inc, dec, reset }] = useInc({
