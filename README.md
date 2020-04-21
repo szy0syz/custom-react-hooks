@@ -138,3 +138,49 @@ const Cookie = () => {
   );
 };
 ```
+
+### useScrollFrezee
+
+```js
+export const useScrollFreeze = () => {
+  useLayoutEffect(() => {
+    const original = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, []);
+};
+```
+
+> 为了让 `useScrollFreeze` 起作用，强制包一层，让元素消失，则 `useLayoutEffect` 的 `return` 生效
+
+```js
+const NavWrapper = () => {
+  const { isMenuOpen } = useAppState();
+  if (!isMenuOpen) return null;
+  return <Nav />;
+};
+
+const Nav = () => {
+  const { toggleMenu } = useAppState();
+  useScrollFreeze();
+
+  return (
+    <nav
+      style={{
+        background: 'var(--black)',
+        color: 'white',
+        position: 'fixed',
+        width: '100vw',
+        height: '100vh',
+        left: 0,
+        right: 0,
+      }}
+    >
+      <h1>Menu</h1>
+      <button onClick={toggleMenu}>Close~</button>
+    </nav>
+  );
+};
+```
