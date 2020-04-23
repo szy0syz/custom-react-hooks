@@ -187,6 +187,11 @@ const Nav = () => {
 
 ### useWindowWidth
 
+- 监听 window 对象的 resize 事件并加回调
+- 在回调中设置 useState 的值
+- 返回这个值
+- 这样就是通过闭包向外链接的这个值，且是动态的
+
 ```js
 import { useState, useEffect } from 'react';
 
