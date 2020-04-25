@@ -6,6 +6,7 @@ import Toggle from './components/Toggle';
 import Inc from './components/Inc';
 import Mount from './components/Mount';
 import Hover from './components/Hover';
+import Script from './components/Script';
 import Nav from './components/Nav';
 import Cookie from './components/Cookie'
 
@@ -31,6 +32,7 @@ function App() {
           <Inc initial={2} maxValue={10} minValue={-2} step={2} />
           <Mount />
           <Cookie />
+          <Script />
           <Hover />
 
           <CardGrid>
