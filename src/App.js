@@ -9,6 +9,7 @@ import Hover from './components/Hover';
 import Script from './components/Script';
 import Nav from './components/Nav';
 import Cookie from './components/Cookie'
+import Local from './components/Local'
 
 import './App.css';
 import Menu from './Menu';
@@ -31,7 +32,9 @@ function App() {
           <Inc />
           <Inc initial={2} maxValue={10} minValue={-2} step={2} />
           <Mount />
+          <Local />
           <Cookie />
+          <Script />
           <Script />
           <Hover />
 
