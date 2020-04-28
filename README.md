@@ -318,3 +318,18 @@ export const useLocalStorage = (key, initial) => {
   return [value, setValue];
 }
 ```
+
+### useTheme
+
+```js
+export const useTheme = () => {
+  const [theme, setTheme] = useLocalStorage('theme', 'light');
+
+  useEffect(() => {
+    document.body.className = '';
+    document.body.classList.add(theme);
+  }, [theme]);
+
+  return [theme, setTheme];
+};
+```

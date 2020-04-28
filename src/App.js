@@ -10,6 +10,7 @@ import Script from './components/Script';
 import Nav from './components/Nav';
 import Cookie from './components/Cookie'
 import Local from './components/Local'
+import Theme from './components/Theme'
 
 import './App.css';
 import Menu from './Menu';
@@ -36,6 +37,7 @@ function App() {
           <Cookie />
           <Script />
           <Script />
+          <Theme />
           <Hover />
 
           <CardGrid>
